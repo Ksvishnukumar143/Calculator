@@ -1,0 +1,120 @@
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #ecf0f3;
+        font-family: sans-serif;
+        outline:none;
+    }
+    .containter{
+        height:100vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .calculator{
+        background-color: #ecf0f3;
+        padding:15px;
+        box-shadow: inset 5px 5px 12px #ffffff,
+                             5px 5px 12px rgba(0,0,0,.16);
+        border-radius: 30px;
+        display: grid;
+        grid-template-columns: repeat(4,55px);
+    }
+    input{
+            grid-column: span 4;
+            height :70px;
+            width: 200px;
+            background-color: #ecf0f3;
+            box-shadow: inset -5px -5px 12px #ffffff,
+                             5px 5px 12px rgba(0,0,0,.16);
+            border-radius: 30px;
+            border:none;
+            color: rgb(70,70,70);
+            font-size:50px;
+            text-align: right;
+            margin:auto;
+            margin-top:20px;
+            margin-bottom:20px;
+            padding:20px;
+    }
+    button{
+        height: 48px;
+        background-color: #ecf0f3;
+        width:48px;
+        box-shadow: 5px 5px 12px rgba(0,0,0,.16);
+        border:none;
+        border-radius: 50%;
+        margin: 8px;
+        font-size: 20px;
+        font-weight: 500;
+
+    }
+    .equal{
+        grid-column: span 4;
+        width: 100%;
+        border-radius: 19px;
+        margin: auto;
+    }
+    .ac {
+        background-color: rgba(255, 80, 240,0.5);
+    }
+    .blue{
+        background-color: rgba(0, 255, 255, 0.2);
+    }
+</style>
+<html>
+   <body>
+    <div class="containter">
+        <div class="calculator">
+            <input type="text" placeholder="0" id="myapp">
+            <button onclick="Clear()" class="ac">AC</button>
+            <button onclick="del()" class="blue">DEL</button>
+            <button onclick="display('%')" class="blue">%</button>
+            <button onclick="display('(')" class="blue">(</button>
+            <button onclick="display(')')" class="blue">)</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8 </button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')" class="blue">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')" class="blue">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+        
+            <button onclick="display('3')">3</button>
+
+            <button onclick="display('+')" class="blue">+</button>
+            <button onclick="display('.')" class="blue">.</button>
+        
+            <button onclick="display('0')" >0</button>
+            <button onclick="display('/')" class="blue">/</button>
+
+            <button onclick="Calculate()" class="equal">=</button>
+    <script>
+        let outs=document.getElementById('myapp');
+                function display(num){
+                    outs.value+=num;
+                }
+                function Calculate(){
+                    try{
+                        outs.value=eval(outs.value);
+                    }
+                    catch(err)
+                    {
+                        alert("invalid")
+                    }
+                }
+                function Clear(){
+                    outs.value="";
+                }
+                function del(){
+                    outs.value=outs.value.slice(0,-1);
+        
+                }
+    </script>
+   </body>
+</html>
